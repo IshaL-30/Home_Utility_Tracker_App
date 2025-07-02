@@ -1,0 +1,278 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #F8EEE7;
+    overflow: hidden;
+}
+
+/* Full Page Container */
+.full-page-container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Navbar */
+.nav-bg {
+    background-color: #49274A;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+	color: #F8EEE7;
+}
+
+.title {
+	color: #F8EEE7;
+}
+
+.nav-link {
+    margin-left: 15px;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+/* Main Content: split into two */
+.main-content {
+    flex: 1;
+    display: flex;
+	height: 100%;
+    overflow: hidden;
+}
+
+/* Image Section */
+.image-section {
+	width: 65%;
+	position: relative;
+	height: 100%;       
+	overflow: hidden;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.image-section .blurred-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: blur(5px);
+    transform: scale(1.1); 
+    z-index: 1;
+}
+
+.overlay-text {
+    position: absolute;
+    z-index: 2;
+	text-align: center;
+	color: rgb(0, 0, 0);
+	max-width: 90%;
+	font-size: 32px;
+	color: white;
+}
+
+overlay-text-heading {
+	font-size: 45px;
+}
+
+/* Login Section */
+.login-section {
+    width: 35%;
+    background-color: #F8EEE7;
+}
+.login-card {
+    background-color: #F4DECB;
+    padding: 30px;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 380px;
+}
+.login-title {
+    color: #49274A;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+.btn-login {
+    background-color: #49274A;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    width: 100%;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+.btn-login:hover {
+    background-color: #94618E;
+}
+
+/* Footer */
+.footer {
+    background-color: #49274A;
+    color: #fff;
+}
+.social-icon {
+    color: #F4DECB;
+    margin: 0 10px;
+    font-size: 1.4rem;
+}
+.social-icon:hover {
+    color: #94618E;
+}
+.contact {
+	font-size: small;
+}
+
+/* Home Page Content */
+
+.home-content {
+    position: relative;
+    height: 80vh;
+    background: url('/img/home-bg.jpg') no-repeat center center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.home-content .overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(73, 39, 74, 0.6); /* purple overlay */
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+.home-content-text {
+    z-index: 2;
+    color: white;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.4);
+}
+.home-content-text h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+.home-content-text p {
+    font-size: 1.2rem;
+}
+
+.benefits-section {
+    background-color: #fff;
+}
+.benefit-box {
+    background-color: #F4DECB;
+    border-radius: 12px;
+	height: 100%;
+    padding: 25px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease;
+}
+.benefit-box:hover {
+    transform: translateY(-5px);
+}
+.benefit-box i {
+    color: #49274A;
+}
+.benefit-box h5 {
+    margin-top: 10px;
+    color: #49274A;
+}
+.benefit-box p {
+    font-size: 14px;
+}
+
+/* Buttons */
+.btn-login {
+    background-color: #49274A;
+    color: #fff;
+    font-weight: 500;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 5px;
+}
+.btn-login:hover {
+    background-color: #94618E;
+}
+
+/* About Page Content*/
+.about-content {
+    position: relative;
+    height: 45vh;
+    background: url('/img/home-bg.jpg') no-repeat center center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.about-content .overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(73, 39, 74, 0.6); /* purple overlay */
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+.about-content-text {
+    z-index: 2;
+    color: white;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.4);
+}
+.about-content-text h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+.about-content-text p {
+    font-size: 1.2rem;
+}
+
+/* Feature Cards */
+.feature-cards {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.feature-card {
+    background-color: #F4DECB;
+    border-radius: 12px;
+    padding: 25px;
+    width: 250px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+.feature-card h4 {
+    color: #49274A;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+.feature-card p {
+    font-size: 14px;
+    color: #333;
+}
+
+.about-intro h1 {
+    color: #49274A;
+}
+.pillar-card {
+    background-color: #F4DECB;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+}
+.pillar-card i {
+    color: #94618E;
+}
+.pillar-card p {
+    font-size: 14px;
+    color: #333;
+}
+.about-quote {
+    background-color: #F8EEE7;
+    font-style: italic;
+}

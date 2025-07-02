@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Home Utility Tracker</title>
+    <link rel="stylesheet" th:href="@{/css/theme.css}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="full-page-container">
+
+    <!-- Navbar -->
+    <nav class="navbar nav-bg px-3">
+        <span class="navbar-brand text-light">🏠 Home Utility Tracker</span>
+        <div>
+			<a th:href="@{/home}" class="nav-link d-inline-block">Home</a>
+			<a th:href="@{/about}" class="nav-link d-inline-block">About Us</a>
+			<!-- IF USER IS LOGGED IN: Show Dashboard + Logout -->
+			<span th:if="${#authorization.expression('isAuthenticated()')}">
+			    <a th:href="@{/dashboard}" class="nav-link d-inline-block">Dashboard</a>
+			    <a th:href="@{/logout}" class="nav-link d-inline-block">Logout</a>
+			</span>
+
+			<!-- IF USER IS NOT LOGGED IN: Show Login + Register -->
+			<span th:unless="${#authorization.expression('isAuthenticated()')}">
+			    <a th:href="@{/login}" class="nav-link d-inline-block">Login</a>
+			    <a th:href="@{/user/register}" class="nav-link d-inline-block">Register</a>
+			</span>
+        </div>
+    </nav>
+
+    <!-- Content: Image Left + Login Right -->
+    <div class="main-content d-flex">
+        
+        <!-- Left: Blurred Image with Text -->
+        <div class="image-section">
+            <img src="/img/bg.jpg" alt="background" class="blurred-bg" />
+            <div class="overlay-text">
+                <h2 class="overlay-text-heading">Track Your Home Utilities Smartly</h2>
+                <p>Simplify. Remind. Save.</p>
+            </div>
+        </div>
+
+        <!-- Right: Login Form -->
+        <div class="login-section d-flex align-items-center justify-content-center">
+            <div class="login-card">
+                <h2 class="login-title text-center">🔐 Login</h2>
+                <form th:action="@{/login}" method="post">
+                    <div class="mb-3">
+                        <label>Email</label>
+                        <input type="email" name="username" class="form-control" required />
+                    </div>
+                    <div class="mb-3">
+                        <label>Password</label>
+                        <input type="password" name="password" class="form-control" required />
+                    </div>
+                    <div th:if="${param.error}" class="alert alert-danger mt-2">
+                        Invalid email or password.
+                    </div>
+                    <button type="submit" class="btn-login">Login</button>
+                    <div class="mt-3 text-center">
+                        <a th:href="@{/users/register}" class="text-muted">Don’t have an account? Register</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer text-center py-2">
+        <div>
+            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+        </div>
+        <div class="contact">📧 Contact us: support@homeutility.com</div>
+    </footer>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+.card {
+    background-color: #F4DECB;
+    border: none;
+    border-radius: 10px;
+}
+
+h5 {
+    color: #49274A;
+    font-weight: 600;
+}
+.table th, .table td {
+    vertical-align: middle;
+    font-size: 0.9rem;
+}
+
+/* Scrollable Table Wrapper */
+.table-scrollable {
+	min-height: 170px;
+	max-height: 170px;
+	overflow-y: auto;
+	border: 1px solid #ddd;
+	background-color: #fff;
+}
+
+/* Optional: Match width with padding */
+.table-scrollable table {
+    margin-bottom: 0;
+}
+
+.progress {
+    height: 20px;
+    border-radius: 8px;
+}
+.progress-bar {
+    font-weight: 500;
+}
