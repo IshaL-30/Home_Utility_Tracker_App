@@ -12,8 +12,6 @@ public class Appliance {
     private Long id;
 
     private String name;
-    private String brand;
-    private String model;
 
     private int serviceIntervalDays; // e.g., 180
 
@@ -52,22 +50,6 @@ public class Appliance {
 		this.name = name;
 	}
 
-	public String getBrand() {
-		return brand;
-	}
-
-	public void setBrand(String brand) {
-		this.brand = brand;
-	}
-
-	public String getModel() {
-		return model;
-	}
-
-	public void setModel(String model) {
-		this.model = model;
-	}
-
 	public int getServiceIntervalDays() {
 		return serviceIntervalDays;
 	}
@@ -103,8 +85,25 @@ public class Appliance {
 	public User getUser() {
 		return user;
 	}
-
+	
 	public void setUser(User user) {
 		this.user = user;
+	}
+
+	public Appliance(Long id, String name, int serviceIntervalDays, LocalDate lastServiceDate, String technicianName,
+			String technicianPhone, User user) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.serviceIntervalDays = serviceIntervalDays;
+		this.lastServiceDate = lastServiceDate;
+		this.technicianName = technicianName;
+		this.technicianPhone = technicianPhone;
+		this.user = user;
+	}
+
+	public Appliance() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 }

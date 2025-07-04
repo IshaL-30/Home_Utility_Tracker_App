@@ -63,6 +63,7 @@ public class ApplianceController {
         }
 
         model.addAttribute("appliances", appliances);
+        model.addAttribute("appliance", new Appliance());
         model.addAttribute("nextDueDates", nextDueDates);
         model.addAttribute("dueDateColors", dueDateColors);
         
@@ -79,7 +80,7 @@ public class ApplianceController {
     public String editAppliance(@PathVariable Long id, Model model) {
         Appliance appliance = applianceService.getById(id);
         model.addAttribute("appliance", appliance);
-        return "appliance/edit";
+        return "appliance/_editModal :: editServiceModalFragment";
     }
 
     @PostMapping("/update")

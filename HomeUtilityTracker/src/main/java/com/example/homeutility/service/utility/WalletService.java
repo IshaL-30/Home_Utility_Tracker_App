@@ -6,8 +6,8 @@ import com.example.homeutility.model.utility.Wallet;
 import java.util.Optional;
 
 public interface WalletService {
+	Optional<Wallet> getWalletByUser(User user);
     Wallet createWalletForUser(User user);
-    Optional<Wallet> getWalletByUser(User user);
-    void transferToWallet(User user, double amount);
-    void setMonthlyExpenseLimit(User user, double limit);
+    void updateMonthlyExpenseLimit(User user, double limit);
+    void updateBalanceFromGoals(User user);
 }

@@ -112,12 +112,23 @@
 				</div>
 
 				<!-- Wallet -->
-				<div class="card p-3" style="background-color:  #F4DECB; height: 20%;">
-					<h5>💼 Wallet</h5>
-					<div style="padding-left: 2%;">
-						Balance: ₹<span th:text="${wallet.balance}" style="padding-right: 25%;">0.00</span>
-						Monthly Limit: ₹<span th:text="${wallet.monthlyExpenseLimit}">0.00</span>
-					</div>
+				<div class="card p-3" style="background-color: #F4DECB;">
+				    <h5>💼 Wallet</h5>
+				    <div style="padding-left: 2%;">
+				        <p>Balance: ₹<strong th:text="${wallet.balance}">0.00</strong></p>
+				        <p>Monthly Limit: ₹<strong th:text="${wallet.monthlyExpenseLimit}">0.00</strong></p>
+
+				        <!-- 🔧 Set Monthly Limit -->
+				        <form th:action="@{/wallet/set-limit}" method="post" class="d-flex mb-2">
+				            <input type="number" step="0.01" name="limit" class="form-control form-control-sm me-2" placeholder="Set monthly limit" required>
+				            <button type="submit" class="btn btn-sm btn-outline-primary">Set Limit</button>
+				        </form>
+
+				        <!-- 🔁 Refresh Balance from Goals -->
+				        <form th:action="@{/wallet/refresh-balance}" method="post">
+				            <button type="submit" class="btn btn-sm btn-outline-success">Refresh Balance</button>
+				        </form>
+				    </div>
 				</div>
 			</div>
 		</div>

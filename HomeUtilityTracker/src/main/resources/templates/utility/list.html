@@ -69,7 +69,6 @@
 								<td>
 									<button class="btn btn-outline-primary btn-sm"
 										th:onclick="'openEditModal(' + ${bill.id} + ')'">Edit</button>
-
 									<a th:href="@{'/utilities/delete/' + ${bill.id}}"
 										class="btn btn-outline-danger btn-sm"
 										onclick="return confirm('Are you sure you want to delete this bill?');">Delete</a>

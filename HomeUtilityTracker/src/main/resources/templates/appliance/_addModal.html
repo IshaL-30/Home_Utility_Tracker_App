@@ -1,0 +1,43 @@
+<!-- Utility Modal Fragment -->
+<div th:fragment="addServiceModalFragment">
+	<div class="modal fade" id="addServiceModal" tabindex="-1" aria-labelledby="addServiceModalLabel"
+		aria-hidden="true">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<!-- ✅ Only ONE form tag -->
+				<form th:action="@{/appliances/add}" method="post" th:object="${appliance}">
+					<div class="modal-header">
+						<h5 class="modal-title" id="addServiceModalLabel">Add New Appliance Service</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+
+					<div class="modal-body">
+						<div class="mb-3">
+							<label>Name</label>
+							<input type="text" th:field="*{name}" class="form-control" required />
+						</div>
+						<div class="mb-3">
+							<label>Last Service Date</label>
+							<input type="date" th:field="*{lastServiceDate}" class="form-control" required />
+						</div>
+						<div class="mb-3">
+							<label>Service Interval (in days)</label>
+							<input type="number" th:field="*{serviceIntervalDays}" class="form-control" required />
+						</div>
+						<div class="mb-3">
+							<label>Technician Name</label>
+							<input type="text" th:field="*{technicianName}" class="form-control" />
+						</div>
+						<div class="mb-3">
+							<label>Technician Phone</label>
+							<input type="text" th:field="*{technicianPhone}" class="form-control" />
+						</div>
+
+						<button type="submit" class="btn btn-primary">Save Appliance</button>
+						<a href="/appliances/list" class="btn btn-secondary">Back to List</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

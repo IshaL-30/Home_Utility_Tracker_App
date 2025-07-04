@@ -1,12 +1,13 @@
 package com.example.homeutility.service.utility;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-
 import com.example.homeutility.core.model.User;
+import com.example.homeutility.model.utility.Goal;
 import com.example.homeutility.model.utility.Wallet;
 import com.example.homeutility.repository.utility.WalletRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -14,6 +15,9 @@ public class WalletServiceImpl implements WalletService {
 
     @Autowired
     private WalletRepository walletRepository;
+
+    @Autowired
+    private GoalService goalService;
 
     @Override
     public Optional<Wallet> getWalletByUser(User user) {
@@ -30,17 +34,21 @@ public class WalletServiceImpl implements WalletService {
     }
 
     @Override
-    @Transactional
-    public void transferToWallet(User user, double amount) {
-        Wallet wallet = walletRepository.findByUser(user).orElseThrow(() -> new RuntimeException("Wallet not found"));
-        wallet.setBalance(wallet.getBalance() + amount);
+    public void updateMonthlyExpenseLimit(User user, double limit) {
+        Wallet wallet = getWalletByUser(user).orElseGet(() -> createWalletForUser(user));
+        wallet.setMonthlyExpenseLimit(limit);
         walletRepository.save(wallet);
     }
 
     @Override
-    public void setMonthlyExpenseLimit(User user, double limit) {
-        Wallet wallet = walletRepository.findByUser(user).orElseThrow(() -> new RuntimeException("Wallet not found"));
-        wallet.setMonthlyExpenseLimit(limit);
+    public void updateBalanceFromGoals(User user) {
+        List<Goal> goals = goalService.getGoalsByUser(user);
+        double totalSaved = goals.stream()
+                .mapToDouble(Goal::getSavedAmount)
+                .sum();
+
+        Wallet wallet = getWalletByUser(user).orElseGet(() -> createWalletForUser(user));
+        wallet.setBalance(totalSaved);
         walletRepository.save(wallet);
     }
 }
