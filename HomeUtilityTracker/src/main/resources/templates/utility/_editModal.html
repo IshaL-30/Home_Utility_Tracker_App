@@ -1,0 +1,66 @@
+<!-- templates/utility/editModal.html -->
+<div th:fragment="editUtilityModalFragment">
+<div class="modal fade" id="editUtilityModal" tabindex="-1" aria-labelledby="editUtilityModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <form th:action="@{/utilities/update}" method="post" th:object="${bill}">
+                <input type="hidden" th:field="*{id}" />
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editUtilityModalLabel">Edit Utility Bill</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row g-3">
+                        <!-- Same form fields as the add modal -->
+                        <div class="col-md-6">
+                            <label>Type</label>
+                            <input type="text" th:field="*{type}" class="form-control" required />
+                        </div>
+                        <div class="col-md-6">
+                            <label>Amount</label>
+                            <input type="number" th:field="*{amount}" class="form-control" required />
+                        </div>
+                        <div class="col-md-6">
+                            <label>Due Date</label>
+                            <input type="date" th:field="*{dueDate}" class="form-control" required />
+                        </div>
+                        <div class="col-md-6">
+                            <label>Status</label>
+                            <select th:field="*{paid}" class="form-control">
+                                <option th:value="false">Unpaid</option>
+                                <option th:value="true">Paid</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label>Transaction</label>
+                            <select th:field="*{transactionType}" class="form-control">
+                                <option value="DEBITED">Debited</option>
+                                <option value="CREDITED">Credited</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label>Frequency</label>
+                            <select th:field="*{frequencyType}" class="form-control">
+                                <option value="MONTHLY">Monthly</option>
+                                <option value="YEARLY">Yearly</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label>Category</label>
+                            <select th:field="*{category}" class="form-control">
+                                <option value="FIXED">Fixed</option>
+                                <option value="RECURRING">Recurring</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Update Bill</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+</div>

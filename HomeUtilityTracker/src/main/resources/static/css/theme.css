@@ -95,6 +95,8 @@ overlay-text-heading {
     margin-bottom: 20px;
     font-weight: 600;
 }
+
+/* Buttons */
 .btn-login {
     background-color: #49274A;
     color: #fff;
@@ -181,19 +183,6 @@ overlay-text-heading {
 }
 .benefit-box p {
     font-size: 14px;
-}
-
-/* Buttons */
-.btn-login {
-    background-color: #49274A;
-    color: #fff;
-    font-weight: 500;
-    border: none;
-    padding: 10px 25px;
-    border-radius: 5px;
-}
-.btn-login:hover {
-    background-color: #94618E;
 }
 
 /* About Page Content*/

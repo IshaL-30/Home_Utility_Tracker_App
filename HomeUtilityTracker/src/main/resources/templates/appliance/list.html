@@ -21,7 +21,7 @@
             <th>Model</th>
             <th>Last Service Date</th>
             <th>Interval (Days)</th>
-            <th>Next Service Due</th>
+            <th>Next Service Date</th>
             <th>Technician</th>
             <th>Contact</th>
             <th>Actions</th>
@@ -36,6 +36,11 @@
             <td th:text="${appliance.serviceIntervalDays}"></td>
 			<td th:text="${nextDueDates[appliance.id]}"
 			    th:style="'color:' + ${dueDateColors[appliance.id]}">
+			</td>
+			<td>
+			    <form th:action="@{'/appliances/service/' + ${a.id}}" method="post">
+			        <button class="btn btn-sm btn-success">Service Done</button>
+			    </form>
 			</td>
             <td th:text="${appliance.technicianName}"></td>
             <td>

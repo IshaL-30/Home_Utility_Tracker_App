@@ -25,7 +25,7 @@
 			<!-- IF USER IS NOT LOGGED IN: Show Login + Register -->
 			<span th:unless="${#authorization.expression('isAuthenticated()')}">
 			    <a th:href="@{/login}" class="nav-link d-inline-block">Login</a>
-			    <a th:href="@{/user/register}" class="nav-link d-inline-block">Register</a>
+			    <a th:href="@{/users/register}" class="nav-link d-inline-block">Register</a>
 			</span>
         </div>
     </nav>

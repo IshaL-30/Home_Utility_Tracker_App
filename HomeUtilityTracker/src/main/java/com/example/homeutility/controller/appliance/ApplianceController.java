@@ -89,6 +89,17 @@ public class ApplianceController {
         applianceService.saveAppliance(appliance);
         return "redirect:/appliances/list";
     }
+    
+    @PostMapping("/service/{id}")
+    public String markServiceDone(@PathVariable Long id, Principal principal) {
+        Appliance appliance = applianceService.getById(id);
+        if (appliance != null && appliance.getUser().getEmail().equals(principal.getName())) {
+            appliance.setLastServiceDate(LocalDate.now());
+            applianceService.saveAppliance(appliance);
+        }
+        return "redirect:/appliances/list";
+    }
+
 
 
 }

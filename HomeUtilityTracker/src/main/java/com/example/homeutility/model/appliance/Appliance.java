@@ -22,6 +22,13 @@ public class Appliance {
     private String technicianName;
     private String technicianPhone;
 
+    public LocalDate getNextServiceDate() {
+        if (lastServiceDate != null && serviceIntervalDays > 0) {
+            return lastServiceDate.plusDays(serviceIntervalDays);
+        }
+        return null;
+    }
+    
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;

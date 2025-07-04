@@ -8,6 +8,7 @@ h5 {
     color: #49274A;
     font-weight: 600;
 }
+
 .table th, .table td {
     vertical-align: middle;
     font-size: 0.9rem;
@@ -27,10 +28,48 @@ h5 {
     margin-bottom: 0;
 }
 
+.goal-progress {
+	height: 30%;
+	overflow-y: auto;
+}
+
 .progress {
     height: 20px;
     border-radius: 8px;
 }
 .progress-bar {
     font-weight: 500;
+}
+
+/* utility list*/
+
+.table-hover tbody tr:hover {
+    background-color: #f4f4f4;
+}
+
+.card {
+    border-radius: 12px;
+    border: none;
+}
+
+.container {
+	padding: 1%;
+}
+
+#canvas {
+    max-width: 100%;
+    height: auto;
+}
+
+.add-utility-button {
+	align-items: center;
+	text-align: center;
+}
+
+.goal-content {
+	padding: 2%;
+	margin: 4%;
+	height: 80%;
+	overflow-y: auto;
+	background-color: #f4f4f4;
 }

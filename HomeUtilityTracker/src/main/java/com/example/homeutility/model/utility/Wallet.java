@@ -13,7 +13,7 @@ public class Wallet {
     private double balance;
 
     @OneToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "user_id", unique = true)
     private User user;
 
     private double monthlyExpenseLimit;

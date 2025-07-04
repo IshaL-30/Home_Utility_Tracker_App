@@ -36,7 +36,7 @@ public class UtilityBillController {
     @GetMapping("/add")
     public String showAddForm(Model model) {
         model.addAttribute("bill", new UtilityBill());
-        return "utility/add";
+        return "redirect:/utilities/list";
     }
 
     @PostMapping("/add")
@@ -97,10 +97,10 @@ public class UtilityBillController {
             } else {
                 dueDateColors.put(bill.getId(), "green");
             }
-        }
-            
+        } 
             
         model.addAttribute("bills", bills);
+        model.addAttribute("bill", new UtilityBill());
         model.addAttribute("fixedCount", fixedCount);
         model.addAttribute("recurringCount", recurringCount);
         model.addAttribute("creditedTotal", credited);
@@ -108,7 +108,8 @@ public class UtilityBillController {
         model.addAttribute("savings", savings);
         model.addAttribute("monthlyTotals", monthlyTotals);
         model.addAttribute("yearlyTotals", yearlyTotals);
-        model.addAttribute("dueDateColors", dueDateColors);
+        model.addAttribute("dueDateColors", dueDateColors);   
+
 
         return "utility/list";
     }
@@ -117,8 +118,7 @@ public class UtilityBillController {
     public String editBill(@PathVariable Long id, Model model) {
         UtilityBill bill = utilityBillService.getBillById(id);
         model.addAttribute("bill", bill);
-        return "utility/edit";
-    }
+        return "utility/_editModal :: editUtilityModalFragment";    }
 
     @PostMapping("/update")
     public String updateBill(@ModelAttribute("bill") UtilityBill bill, Principal principal) {
@@ -135,8 +135,7 @@ public class UtilityBillController {
     }
     
     @GetMapping("/filter")
-    public String filterByCategory(@RequestParam("category") BillCategory category,
-                                   Model model, Principal principal) {
+    public String filterByCategory(@RequestParam("category") BillCategory category, Model model, Principal principal) {
         User user = userService.findByEmail(principal.getName()).orElse(null);
         List<UtilityBill> filteredBills = utilityBillService.getBillsByUser(user).stream()
             .filter(b -> b.getCategory() == category)

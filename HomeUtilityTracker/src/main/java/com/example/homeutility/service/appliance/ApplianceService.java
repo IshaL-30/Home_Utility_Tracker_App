@@ -10,4 +10,5 @@ public interface ApplianceService {
     List<Appliance> getAppliancesByUser(User user);
     Appliance getById(Long id);
     void delete(Long id);
+
 }
